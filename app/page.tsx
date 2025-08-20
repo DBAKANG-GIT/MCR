@@ -13,7 +13,7 @@ function SearchForm() {
   const [dates, setDates] = useState("");
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-8">
+    <div className="w-full hidden lg:block max-w-6xl mx-auto px-4 py-8">
       <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
           {/* Location */}
@@ -85,16 +85,16 @@ function LocationSection() {
   return (
     <section className="py-16 px-4 max-w-8xl mx-auto">
       {/* Header Section */}
-      <div className="flex flex-col font-Jakarta lg:flex-row items-start justify-between mb-12 gap-8">
+      <div className="flex  flex-col font-Jakarta  lg:flex-row items-center justify-center lg:items-center lg:justify-between mb-12 gap-8">
         <div className="lg:w-1/2">
-          <h2 className="text-4xl lg:text-5xl font-lightt text-gray-900 leading-tight">
-            Find Your <span className="text-[#4364A0]">Future</span>
+          <h2 className="text-4xl text-center lg:text-left lg:text-5xl font-lightt text-gray-900 leading-tight">
+            Find Your <span className="lg:text-[#4364A0] ">Future</span>
             <br />
-            <span className="text-[#4364A0]">Home</span> Today.
+            <span className="lg:text-[#4364A0]">Home</span> Today.
           </h2>
         </div>
-        <div className="lg:w-1/2 flex flex-col items-start lg:items-end">
-          <p className="text-gray-600 text-lg leading-relaxed mb-4">
+        <div className="lg:w-1/2  flex flex-col  text-center lg:text-left items-start lg:items-end">
+          <p className="text-gray-600 text-lg lleading-relaxed mb-4">
             Explore a world of possibilities. Working away or need a place to
             stay, find your dream stay and every trip feel like home.
           </p>
@@ -105,18 +105,18 @@ function LocationSection() {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         {/* Image */}
-        <div className="lg:w-1/2">
+        <div className=" w-full lg:w-1/2">
           <Image
             width={600}
             height={400}
             src="/header-1.png"
             alt="Manchester city center with historic buildings"
-            className="w-full h-[400px] lg:h-[500px] object-cover rounded-lg "
+            className="w-full h-[400px] lg:h-[500px] object-cover lg:rounded-lg "
           />
         </div>
 
         {/* Content */}
-        <div className="lg:w-1/2 font-Jakarta space-y-6">
+        <div className="lg:w-1/2  flex flex-col justify-center text-center lg:text-left font-Jakarta space-y-6">
           <h3 className="text-3xl lg:text-4xl font-bold text-gray-900">
             We are in Manchester
           </h3>
@@ -135,9 +135,11 @@ function LocationSection() {
             its inhabitants.
           </p>
 
-          <button className="text-[#4364A0]  px-5 py-2 bg-[#E8EFFC] font-meduim rounded-full  transition-colors duration-200 flex items-center gap-2">
-            See More
-          </button>
+          <div className="flex justify-center lg:justify-start w-full">
+            <button className="text-[#4364A0]  px-5 py-2 bg-[#E8EFFC] font-meduim rounded-full  transition-colors duration-200 flex items-center gap-2">
+              See More
+            </button>
+          </div>
         </div>
       </div>
     </section>

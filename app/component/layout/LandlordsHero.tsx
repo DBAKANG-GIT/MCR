@@ -19,7 +19,7 @@ export function LandlordsHero() {
       />
       {/* Overlay */}
       <div className="relative z-10 text-center text-white max-w-6xl mx-auto w-full flex flex-col items-center justify-center">
-        <h1 className="lg:text-5xl fontt-light  font-bold mb-6 leading-tight drop-shadow-lg">
+        <h1 className="text-4xl lg:text-5xl font-medium lg:font-light   mb-6 leading-tight drop-shadow-lg">
           Designed to be Your Home Away From Home
         </h1>
 

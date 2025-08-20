@@ -59,41 +59,12 @@ export default function Navbar() {
               </Link>
 
               {/* Properties Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={toggleDropdown}
-                  onBlur={() => setTimeout(closeDropdown, 150)}
-                  className="flex items-center text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  Our Properties
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                {isDropdownOpen && (
-                  <div className="absolute left-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                    <Link
-                      href="/properties/apartments"
-                      className="block px-4 py-2 text-sm text-[#585F81] hover:bg-gray-50 hover:text-primary"
-                      onClick={closeDropdown}
-                    >
-                      Apartments
-                    </Link>
-                    <Link
-                      href="/properties/houses"
-                      className="block px-4 py-2 text-sm text-[#585F81] hover:bg-gray-50 hover:text-primary"
-                      onClick={closeDropdown}
-                    >
-                      Houses
-                    </Link>
-                    <Link
-                      href="/properties/commercial"
-                      className="block px-4 py-2 text-sm text-[#585F81] hover:bg-gray-50 hover:text-primary"
-                      onClick={closeDropdown}
-                    >
-                      Commercial
-                    </Link>
-                  </div>
-                )}
-              </div>
+              <Link
+                href="/properties"
+                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+              >
+                Property
+              </Link>
 
               <Link
                 href="/landlords"

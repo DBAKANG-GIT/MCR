@@ -103,13 +103,13 @@ export default function Footer() {
                   English
                 </button>
                 <a
-                  href="#"
+                  href="/terms"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Terms & Conditions
                 </a>
                 <a
-                  href="#"
+                  href="/policy"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Privacy policy
@@ -320,13 +320,13 @@ export default function Footer() {
           {/* Legal Links */}
           <div className="text-center space-y-2 mb-8">
             <a
-              href="#"
+              href="policy"
               className="block text-gray-400 hover:text-white transition-colors py-1"
             >
               Privacy Policy
             </a>
             <a
-              href="#"
+              href="/terms"
               className="block text-gray-400 hover:text-white transition-colors py-1"
             >
               Terms & Conditions
