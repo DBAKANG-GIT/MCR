@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Button } from "../component/ui/button";
-import { LandlordsHero } from "../component/layout/LandlordsHero";
 import { LandlordsInvestorsSection } from "../component/layout/LandlordsInvestorsSection";
 import Link from "next/link";
 import FAQ from "../component/layout/Faq";

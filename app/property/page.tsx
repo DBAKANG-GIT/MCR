@@ -29,6 +29,9 @@ export default function PropertyPage() {
   const [checkOut, setCheckOut] = useState("18 July, 2025");
   const [showCalendar, setShowCalendar] = useState(false);
   const [currentMonth, setCurrentMonth] = useState("August 2025");
+  const [selecting, setSelecting] = useState<"checkIn" | "checkOut" | null>(
+    null
+  );
   const [showMoreDescription, setShowMoreDescription] = useState(false);
   const [showMoreFacilities, setShowMoreFacilities] = useState(false);
 
@@ -318,7 +321,10 @@ export default function PropertyPage() {
                       value={checkIn}
                       readOnly
                       className="w-full p-3 border text-black border-gray-300 rounded-lg bg-white cursor-pointer"
-                      onClick={() => setShowCalendar(!showCalendar)}
+                      onClick={() => {
+                        setShowCalendar(true);
+                        setSelecting("checkIn");
+                      }}
                     />
                     <Calendar className="absolute right-3 top-3 w-4 h-4 text-gray-400" />
                   </div>
@@ -333,6 +339,10 @@ export default function PropertyPage() {
                       value={checkOut}
                       readOnly
                       className="w-full p-3 border border-gray-300 rounded-lg text-black bg-white cursor-pointer"
+                      onClick={() => {
+                        setShowCalendar(true);
+                        setSelecting("checkOut");
+                      }}
                     />
                     <Calendar className="absolute right-3 top-3 w-4 h-4 text-gray-400" />
                   </div>
@@ -343,13 +353,69 @@ export default function PropertyPage() {
               {showCalendar && (
                 <div className="mb-6 border border-gray-200 rounded-lg p-4 bg-white">
                   <div className="flex items-center justify-between mb-4">
-                    <button>
+                    <button
+                      onClick={() => {
+                        // Go to previous month
+                        const [month, year] = currentMonth.split(" ");
+                        const months = [
+                          "January",
+                          "February",
+                          "March",
+                          "April",
+                          "May",
+                          "June",
+                          "July",
+                          "August",
+                          "September",
+                          "October",
+                          "November",
+                          "December",
+                        ];
+                        let idx = months.indexOf(month);
+                        let newYear = parseInt(year);
+                        if (idx === 0) {
+                          idx = 11;
+                          newYear -= 1;
+                        } else {
+                          idx -= 1;
+                        }
+                        setCurrentMonth(`${months[idx]} ${newYear}`);
+                      }}
+                    >
                       <CalendarLeft className="w-4 h-4 text-gray-400" />
                     </button>
                     <h4 className="font-medium text-gray-900">
                       {currentMonth}
                     </h4>
-                    <button>
+                    <button
+                      onClick={() => {
+                        // Go to next month
+                        const [month, year] = currentMonth.split(" ");
+                        const months = [
+                          "January",
+                          "February",
+                          "March",
+                          "April",
+                          "May",
+                          "June",
+                          "July",
+                          "August",
+                          "September",
+                          "October",
+                          "November",
+                          "December",
+                        ];
+                        let idx = months.indexOf(month);
+                        let newYear = parseInt(year);
+                        if (idx === 11) {
+                          idx = 0;
+                          newYear += 1;
+                        } else {
+                          idx += 1;
+                        }
+                        setCurrentMonth(`${months[idx]} ${newYear}`);
+                      }}
+                    >
                       <CalendarRight className="w-4 h-4 text-gray-400" />
                     </button>
                   </div>
@@ -367,13 +433,31 @@ export default function PropertyPage() {
                         <button
                           key={`${weekIndex}-${dayIndex}`}
                           className={`text-sm py-2 text-center rounded ${
-                            day === 19
+                            (selecting === "checkIn" &&
+                              day &&
+                              day === parseInt(checkIn.split(" ")[0])) ||
+                            (selecting === "checkOut" &&
+                              day &&
+                              day === parseInt(checkOut.split(" ")[0]))
                               ? "bg-cyan-500 text-white"
                               : day
                               ? "hover:bg-gray-100 text-gray-900"
                               : "text-gray-300"
                           }`}
                           disabled={!day}
+                          onClick={() => {
+                            if (!day) return;
+                            // For demo, just update the day in the string, keep month/year static
+                            if (selecting === "checkIn") {
+                              setCheckIn(`${day} ${currentMonth}`);
+                              setShowCalendar(false);
+                              setSelecting(null);
+                            } else if (selecting === "checkOut") {
+                              setCheckOut(`${day} ${currentMonth}`);
+                              setShowCalendar(false);
+                              setSelecting(null);
+                            }
+                          }}
                         >
                           {day}
                         </button>

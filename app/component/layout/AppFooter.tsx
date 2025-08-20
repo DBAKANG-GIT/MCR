@@ -3,13 +3,7 @@
 import type React from "react";
 import Image from "next/image";
 import { useState } from "react";
-import {
-  ArrowRight,
-  Facebook,
-  Linkedin,
-  Instagram,
-  MessageCircle,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
