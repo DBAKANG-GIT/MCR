@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 export function LandlordsInvestorsSection() {
@@ -18,9 +19,14 @@ export function LandlordsInvestorsSection() {
         reduce vacancies, and make smarter, data-driven investment decisions—so
         you can enjoy passive income with confidence.
       </p>
-      <button className="text-[#4364A0] px-5 py-2 bg-[#E8EFFC] font-light lg:font-medium rounded-full transition-colors duration-200 flex items-center gap-2">
-        Become a partner
-      </button>
+      <div className="flex  w-full tems-center justify-center">
+        <Link
+          href={"/contact"}
+          className="text-[#4364A0]  w-full text-center  lg:w-[200px] justify-center px-5 py-2 bg-[#E8EFFC] font-light lg:font-medium rounded-full transition-colors duration-200 flex items-center gap-2"
+        >
+          Become a partner
+        </Link>{" "}
+      </div>
     </div>
   );
 }

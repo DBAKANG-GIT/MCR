@@ -4,6 +4,7 @@ import type React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -56,36 +57,36 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div className="flex justify-center space-x-8 mb-8">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="text-white hover:text-cyan-400 transition-colors"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/about"
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               About Us
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/properties"
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               Properties
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/landlords"
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               Landlords & Investors
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/contact"
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
 
           {/* Bottom Section */}
@@ -96,18 +97,18 @@ export default function Footer() {
                 <button className="px-4 py-2 bg-primary text-white rounded-none">
                   English
                 </button>
-                <a
+                <Link
                   href="/terms"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Terms & Conditions
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/policy"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Privacy policy
-                </a>
+                </Link>
               </div>
 
               {/* Center: Social Icons */}
@@ -268,36 +269,36 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div className="text-center space-y-4 mb-8">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="block text-white hover:text-cyan-400 transition-colors py-2"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/about"
               className="block text-gray-400 hover:text-cyan-400 transition-colors py-2"
             >
               About us
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/properties"
               className="block text-gray-400 hover:text-cyan-400 transition-colors py-2"
             >
               Our Properties
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/landlords"
               className="block text-gray-400 hover:text-cyan-400 transition-colors py-2"
             >
               Landlords & Investors
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/contact"
               className="block text-gray-400 hover:text-cyan-400 transition-colors py-2"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
 
           {/* Contact Section */}
@@ -306,25 +307,30 @@ export default function Footer() {
               Stay in contact
             </h4>
             <div className="space-y-2">
-              <p className="text-gray-300">info@mcrgetawaysltd.com</p>
+              <a
+                href="mailto:info@mcrgetawaysltd.com"
+                className="text-gray-300 hover:text-cyan-400 transition-colors"
+              >
+                info@mcrgetawaysltd.com
+              </a>
               <p className="text-gray-300">+44 7999 737846</p>
             </div>
           </div>
 
           {/* Legal Links */}
           <div className="text-center space-y-2 mb-8">
-            <a
-              href="policy"
+            <Link
+              href="/policy"
               className="block text-gray-400 hover:text-white transition-colors py-1"
             >
               Privacy Policy
-            </a>
-            <a
+            </Link>
+            <Link
               href="/terms"
               className="block text-gray-400 hover:text-white transition-colors py-1"
             >
               Terms & Conditions
-            </a>
+            </Link>
             <a
               href="#"
               className="block text-gray-400 hover:text-white transition-colors py-1"

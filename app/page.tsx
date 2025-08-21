@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Users, Calendar } from "lucide-react";
+import { MapPin, Users, Calendar, ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { LandlordsInvestorsSection } from "./component/layout/LandlordsInvestorsSection";
 import { LandlordsHero } from "./component/layout/LandlordsHero";
+import Link from "next/link";
 
 function SearchForm() {
   const [location, setLocation] = useState("");
@@ -98,7 +99,10 @@ function LocationSection() {
             Explore a world of possibilities. Working away or need a place to
             stay, find your dream stay and every trip feel like home.
           </p>
-          <ChevronDown className="w-6 h-6 text-gray-400" />
+        </div>
+
+        <div className="flex items-center gap-2 text-gray-500 rounded-full p-4 bg-[#F5F6FF]">
+          <ArrowDown className="w-6 h-6  text-[#4364A0]" />
         </div>
       </div>
 
@@ -109,9 +113,10 @@ function LocationSection() {
           <Image
             width={600}
             height={400}
-            src="/header-1.png"
+            loading="lazy"
+            src="/day-1.jpg"
             alt="Manchester city center with historic buildings"
-            className="w-full h-[400px] lg:h-[500px] object-cover lg:rounded-lg "
+            className="w-full h-[400px] lg:h-[500px] object-cover  "
           />
         </div>
 
@@ -136,9 +141,11 @@ function LocationSection() {
           </p>
 
           <div className="flex justify-center lg:justify-start w-full">
-            <button className="text-[#4364A0]  px-5 py-2 bg-[#E8EFFC] font-meduim rounded-full  transition-colors duration-200 flex items-center gap-2">
-              See More
-            </button>
+            <Link href="/properties" className="w-full lg:w-[200px]">
+              <button className="text-[#4364A0]  w-full flex items-center justify-center px-5 py-2 bg-[#E8EFFC] font-meduim rounded-full  transition-colors duration-200  gap-2">
+                See More
+              </button>{" "}
+            </Link>
           </div>
         </div>
       </div>
@@ -161,9 +168,11 @@ export default function Hero() {
               to guide you every step of the way. Lets explore opportunities,
               make informed decisions, and create a brighter tomorrow, together!
             </p>
-            <button className="bg-primary hover:bg-cyan-600 text-white font-semibold px-5 py-3 rounded-lg transition-colors duration-200 text-base">
-              Browse Properties
-            </button>
+            <Link href="/properties">
+              <button className="bg-primary hover:bg-cyan-600 text-white font-semibold px-5 py-3 rounded-lg transition-colors duration-200 text-base">
+                Browse Properties
+              </button>
+            </Link>
           </div>
 
           {/* Right Image */}
@@ -175,6 +184,8 @@ export default function Hero() {
                 src={"/header-1.png"}
                 alt="Modern living room with couple looking at tablet"
                 className="w-[200px] h-[500px] lg:w-[600px] lg:h-[600px]  object-cover"
+                priority
+                fetchPriority="high"
               />
               <Image
                 width={600}
@@ -182,6 +193,7 @@ export default function Hero() {
                 src={"/header-2.png"}
                 alt="Modern living room with couple looking at tablet"
                 className="w-[200px] h-[500px] lg:w-[600px]  lg:h-[600px]  object-cover"
+                loading="lazy"
               />
             </div>
           </div>

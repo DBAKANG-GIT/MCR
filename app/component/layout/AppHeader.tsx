@@ -18,8 +18,8 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className="bg-white shadow-sm border-b border-gray-100">
-        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="bg-white  lg:sticky w-full shadow-sm border-b border-gray-100">
+        <div className="max-w-8xl  mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -28,6 +28,7 @@ export default function Navbar() {
                   src={"/logo-1.svg"}
                   alt="MCR Getaways"
                   width={40}
+                  loading="lazy"
                   height={40}
                   className="h-10 w-auto"
                 />
@@ -74,7 +75,13 @@ export default function Navbar() {
             {/* Desktop Book Now Button */}
             <div className="hidden md:flex items-center">
               <button className="border border-primary  border-solid  text-primary  px-3 py-2 rounded-lg flex items-center gap-2 transition-colors">
-                <Image src="/book-icon.svg" alt="Book" width={16} height={16} />
+                <Image
+                  src="/book-icon.svg"
+                  alt="Book"
+                  width={16}
+                  height={16}
+                  loading="lazy"
+                />
                 Book Now
               </button>
             </div>
@@ -92,84 +99,97 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50"
-            onClick={closeMobileMenu}
-          />
-          <div className="fixed inset-y-0 left-0 w-full max-w-sm bg-white shadow-xl">
-            <div className="flex flex-col h-full">
-              {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                <Image
-                  src={"/logo-2.svg"}
-                  alt="MCR Getaways"
-                  width={40}
-                  height={40}
-                  className="h-8 w-auto"
-                />
-                <button
-                  onClick={closeMobileMenu}
-                  className="text-[#585F81] hover:text-primary p-2"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
+      {/* Mobile Menu Overlay with Transition */}
+      <div
+        className={`fixed inset-0 z-50 md:hidden pointer-events-none transition-opacity duration-300 ${
+          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0"
+        }`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        {/* Overlay fade */}
+        <div
+          className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
+            isMobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={closeMobileMenu}
+        />
+        {/* Slide-in menu */}
+        <div
+          className={`fixed inset-y-0 left-0 w-full max-w-sm bg-white shadow-xl transform transition-transform duration-300 ${
+            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className="flex flex-col h-full">
+            {/* Mobile Menu Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-200">
+              <Image
+                src={"/logo-2.svg"}
+                alt="MCR Getaways"
+                width={40}
+                height={40}
+                className="h-8 w-auto"
+              />
+              <button
+                onClick={closeMobileMenu}
+                className="text-[#585F81] hover:text-primary p-2"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
 
-              {/* Mobile Menu Items */}
-              <div className="flex-1 px-4 py-6 space-y-6">
-                <Link
-                  href="/"
-                  className="block text-[#585F81] hover:text-primary text-lg font-medium"
-                  onClick={closeMobileMenu}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/about"
-                  className="block text-[#585F81] hover:text-primary text-lg font-medium"
-                  onClick={closeMobileMenu}
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/properties"
-                  className="block text-[#585F81] hover:text-primary text-lg font-medium"
-                  onClick={closeMobileMenu}
-                >
-                  Our Properties
-                </Link>
+            {/* Mobile Menu Items */}
+            <div className="flex-1 px-4 py-6 space-y-6">
+              <Link
+                href="/"
+                className="block text-[#585F81] hover:text-primary text-lg font-medium"
+                onClick={closeMobileMenu}
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="block text-[#585F81] hover:text-primary text-lg font-medium"
+                onClick={closeMobileMenu}
+              >
+                About Us
+              </Link>
+              <Link
+                href="/properties"
+                className="block text-[#585F81] hover:text-primary text-lg font-medium"
+                onClick={closeMobileMenu}
+              >
+                Our Properties
+              </Link>
 
-                <Link
-                  href="/landlords"
-                  className="block text-[#585F81] hover:text-primary text-lg font-medium"
-                  onClick={closeMobileMenu}
-                >
-                  Landlords & Investors
-                </Link>
-                <Link
-                  href="/contact"
-                  className="block text-[#585F81] hover:text-primary text-lg font-medium"
-                  onClick={closeMobileMenu}
-                >
-                  Contact Us
-                </Link>
-                {/* Mobile Book Now Button */}
-                <div className="p-4 border-t border-gray-200">
+              <Link
+                href="/landlords"
+                className="block text-[#585F81] hover:text-primary text-lg font-medium"
+                onClick={closeMobileMenu}
+              >
+                Landlords & Investors
+              </Link>
+              <Link
+                href="/contact"
+                className="block text-[#585F81] hover:text-primary text-lg font-medium"
+                onClick={closeMobileMenu}
+              >
+                Contact Us
+              </Link>
+              {/* Mobile Book Now Button */}
+              <div className="p-4 border-t border-gray-200">
+                <Link href={"/properties"}>
                   <button
                     className="w-full bg-primary hover:bg-primary text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
                     onClick={closeMobileMenu}
                   >
                     Book Now
                   </button>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 }

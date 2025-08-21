@@ -21,8 +21,11 @@ export default function About() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        <div className="relative z-10  lg:w-[80%] text-center text-white px-4">
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl
+          font-bold mb-4"
+          >
             <span className=" pb-2">
               Landlords & Property investment in Manchester
             </span>
@@ -82,7 +85,7 @@ export default function About() {
             </p>
 
             <div className="flex justify-center lg:justify-start w-full">
-              <Link href="/landlords">
+              <Link href="/Contact">
                 <button className="text-[#4364A0]  px-5 py-2 bg-[#E8EFFC] font-meduim rounded-full  transition-colors duration-200 flex items-center gap-2">
                   Contact us{" "}
                 </button>

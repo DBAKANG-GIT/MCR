@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "optimize:images": "node scripts/optimize-images.js",
+    "build": "npm run optimize:images && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -15,6 +16,7 @@
     "next-video": "^2.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "sharp": "^0.34.3",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

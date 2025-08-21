@@ -16,6 +16,7 @@ export function LandlordsHero() {
         loop
         muted
         playsInline
+        preload="none"
       />
       {/* Overlay */}
       <div className="relative z-10 text-center text-white max-w-6xl mx-auto w-full flex flex-col items-center justify-center">
