@@ -37,11 +37,11 @@ export default function PropertyPage() {
 
   const images = [
     "/property-1.jpg",
-    "/property-1.jpg",
-    "/property-1.jpg",
-    "/property-1.jpg",
-    "/property-1.jpg",
-    "/property-1.jpg",
+    "/property-2.jpg",
+    "/property-3.jpg",
+    "/property-4.jpg",
+    "/property-5.jpg",
+    "/property-6.jpg",
     "/property-1.jpg",
   ];
 
