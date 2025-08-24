@@ -14,12 +14,14 @@ export const metadata = {
     "UK real estate",
     "holiday lets",
   ],
-  authors: [{ name: "MCR Getaways Team", url: "https://www.yourdomain.com" }],
+  authors: [
+    { name: "MCR Getaways Team", url: "https://www.mcrgetawaysltd.com/" },
+  ],
   openGraph: {
     title: "MCR Getaways | Manchester's Premier Property & Rental Platform",
     description:
       "Find your dream home, invest in property, or enjoy a short-term stay in Manchester. MCR Getaways offers tailored solutions for renters, landlords, and investors.",
-    url: "https://www.yourdomain.com",
+    url: "https://www.mcrgetawaysltd.com/",
     siteName: "MCR Getaways",
     images: [
       {

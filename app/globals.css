@@ -20,6 +20,19 @@
     --foreground: #ededed;
   }
 }
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* how high it bounces */
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite; /* 2s = slower, increase for even slower */
+}
 
 body {
   background: var(--background);

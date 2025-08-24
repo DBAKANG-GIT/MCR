@@ -101,8 +101,16 @@ function LocationSection() {
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-gray-500 rounded-full p-4 bg-[#F5F6FF]">
-          <ArrowDown className="w-6 h-6  text-[#4364A0]" />
+        <div
+          onClick={() =>
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth",
+            })
+          }
+          className="flex items-center gap-2 text-gray-500 rounded-full p-4 animate-bounce-slow bg-[#F5F6FF] cursor-pointer "
+        >
+          <ArrowDown className="w-6 h-6 text-[#4364A0]  " />
         </div>
       </div>
 
@@ -114,7 +122,7 @@ function LocationSection() {
             width={600}
             height={400}
             loading="lazy"
-            src="/day-1.jpg"
+            src="/day-1.webp"
             alt="Manchester city center with historic buildings"
             className="w-full h-[400px] lg:h-[500px] object-cover  "
           />
@@ -181,7 +189,7 @@ export default function Hero() {
               <Image
                 width={600}
                 height={400}
-                src={"/header-1.png"}
+                src={"/header-1.webp"}
                 alt="Modern living room with couple looking at tablet"
                 className="w-[200px] h-[500px] lg:w-[600px] lg:h-[600px]  object-cover"
                 priority
@@ -190,7 +198,7 @@ export default function Hero() {
               <Image
                 width={600}
                 height={400}
-                src={"/header-2.png"}
+                src={"/header-2.webp"}
                 alt="Modern living room with couple looking at tablet"
                 className="w-[200px] h-[500px] lg:w-[600px]  lg:h-[600px]  object-cover"
                 loading="lazy"
