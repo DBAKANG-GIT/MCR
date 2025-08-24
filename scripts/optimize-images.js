@@ -1,33 +1,51 @@
 import * as fs from "node:fs/promises";
-import path from "path"; // eslint-disable-next-line @typescript-eslint/no-require-imports
-import sharp from "sharp"; // eslint-disable-line @typescript-eslint/no-require-imports
+import path from "path";
+import { fileURLToPath } from "url";
+import sharp from "sharp";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const IMAGE_DIR = path.join(__dirname, "../public");
 const exts = [".png", ".jpg", ".jpeg"];
 
-function walk(dir, callback) {
-  fs.readdirSync(dir).forEach((file) => {
-    const filepath = path.join(dir, file);
-    if (fs.statSync(filepath).isDirectory()) {
-      walk(filepath, callback);
+async function walk(dir, callback) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const filepath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      await walk(filepath, callback);
     } else {
-      callback(filepath);
+      await callback(filepath);
     }
-  });
+  }
 }
 
-walk(IMAGE_DIR, (filepath) => {
-  const ext = path.extname(filepath).toLowerCase();
-  if (exts.includes(ext)) {
-    const outPath = filepath;
-    sharp(filepath)
-      .toFormat(ext === ".png" ? "png" : "jpeg", { quality: 80 })
-      .toFile(outPath + ".opt", (err) => {
-        if (!err) {
-          fs.renameSync(outPath + ".opt", outPath);
-          console.log("Optimized:", outPath);
-        } else {
-          console.error("Error optimizing", outPath, err);
+async function optimizeImages() {
+  try {
+    await walk(IMAGE_DIR, async (filepath) => {
+      const ext = path.extname(filepath).toLowerCase();
+      if (exts.includes(ext)) {
+        try {
+          const outPath = filepath;
+          const tempPath = outPath + ".opt";
+
+          await sharp(filepath)
+            .toFormat(ext === ".png" ? "png" : "jpeg", { quality: 80 })
+            .toFile(tempPath);
+
+          await fs.rename(tempPath, outPath);
+          console.log("Optimized:", filepath);
+        } catch (err) {
+          console.error("Error optimizing", filepath, err);
         }
-      });
+      }
+    });
+    console.log("Image optimization completed!");
+  } catch (err) {
+    console.error("Error during image optimization:", err);
   }
-});
+}
+
+optimizeImages();

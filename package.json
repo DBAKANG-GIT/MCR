@@ -2,6 +2,7 @@
   "name": "mcr",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "optimize:images": "node scripts/optimize-images.js",
