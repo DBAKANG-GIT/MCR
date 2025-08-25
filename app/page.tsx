@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { MapPin, Users, Calendar, ArrowDown } from "lucide-react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
 import { LandlordsInvestorsSection } from "./component/layout/LandlordsInvestorsSection";
 import { LandlordsHero } from "./component/layout/LandlordsHero";
 import Link from "next/link";
