@@ -6,19 +6,12 @@ import FAQ from "../component/layout/Faq";
 export default function About() {
   return (
     <main className="bg-white">
-      <section className="relative h-[500px] flex items-center justify-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/landlord-1.jpg"
-            alt="United Kingdom skyline"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Dark overlay for better texdddddt readability */}
-          <div className="absolute inset-0 bg-[#0000009f] bg-opacity-40"></div>
-        </div>
+      <section
+        className="relative h-[500px] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/landlord-1.webp')" }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Content */}
         <div className="relative z-10  lg:w-[80%] text-center text-white px-4">
@@ -30,11 +23,14 @@ export default function About() {
               Landlords & Property investment in Manchester
             </span>
           </h1>
-          <Button className="px-5 border-none py-4 rounded-2xl">
-            Learn More
-          </Button>
+          <Link href={"/contact"}>
+            <Button className="px-5 border-none py-4 rounded-2xl">
+              Learn More
+            </Button>
+          </Link>
         </div>
       </section>
+
       <LandlordsInvestorsSection />
       <section className="max-w-6xl mx-auto px-4 py-16 ">
         {/* Main Content */}
@@ -44,7 +40,7 @@ export default function About() {
             <Image
               width={400}
               height={400}
-              src="/landlord-2.jpg"
+              src="/landlord-2.webp"
               alt="Manchester city center with historic buildings"
               className="w-full h-[400px] lg:h-[400px] object-cover  "
             />

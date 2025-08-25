@@ -70,7 +70,7 @@ export default function Footer() {
               About Us
             </Link>
             <Link
-              href="/properties"
+              href="/not-found"
               className="text-gray-400 hover:text-cyan-400 transition-colors"
             >
               Properties
@@ -172,7 +172,7 @@ export default function Footer() {
 
               {/* Right: Copyright */}
               <div className="text-gray-400">
-                Non Copyrighted © 4025 MCR GETAWAYS
+                Non Copyrighted © 2025 MCR GETAWAYS
               </div>
             </div>
           </div>
@@ -282,7 +282,7 @@ export default function Footer() {
               About us
             </Link>
             <Link
-              href="/properties"
+              href="/not-found"
               className="block text-gray-400 hover:text-cyan-400 transition-colors py-2"
             >
               Our Properties
@@ -313,7 +313,12 @@ export default function Footer() {
               >
                 info@mcrgetawaysltd.com
               </a>
-              <p className="text-gray-300">+44 7999 737846</p>
+              <a
+                href="tel:+447999737846"
+                className="block text-gray-300 hover:text-cyan-400 transition-colors"
+              >
+                +44 7999 737846
+              </a>
             </div>
           </div>
 
@@ -341,7 +346,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-center text-gray-400 text-sm">
-            Non Copyrighted © 4025 MCR GETAWAYS
+            Non Copyrighted © 2025 MCR GETAWAYS
           </div>
         </div>
       </div>

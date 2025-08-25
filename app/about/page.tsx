@@ -1,33 +1,30 @@
 import Image from "next/image";
 import { Button } from "../component/ui/button";
 import { LandlordsHero } from "../component/layout/LandlordsHero";
+import Link from "next/link";
 export default function About() {
   return (
     <main className="bg-white">
-      <section className="relative h-[500px] flex items-center justify-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/about-1.png"
-            alt="United Kingdom skyline"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Dark overlay for better texdddddt readability */}
-          <div className="absolute inset-0 bg-[#0000009f] bg-opacity-40"></div>
-        </div>
+      <section
+        className="relative h-[500px] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/about-1.webp')" }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4">
+        <div className="relative text-center text-white px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className=" pb-2">About MCR Gateaway</span>
+            <span className="pb-2">About MCR Gateway</span>
           </h1>
-          <Button className="px-5 border-none py-4 rounded-2xl">
-            Browse Properties
-          </Button>
+          <Link href={"/properties"}>
+            <Button className="px-5 border-none py-4 rounded-2xl">
+              Browse Properties
+            </Button>
+          </Link>
         </div>
       </section>
+
       <section className="flex justify-center items-start flex-col max-w-6xl  mx-auto  p-16">
         <h2 className="text-3xl md:text-4xl font-bold text-center  text-black lg:text-left mb-8">
           MCR Gateaway
@@ -80,9 +77,11 @@ export default function About() {
             </p>
 
             <div className="flex justify-center lg:justify-start w-full">
-              <button className="text-[#4364A0]  px-5 py-2 bg-[#E8EFFC] font-meduim rounded-full  transition-colors duration-200 flex items-center gap-2">
-                Book a stay
-              </button>
+              <Link href={"/contact"}>
+                <button className="text-[#4364A0]  px-5 py-2 bg-[#E8EFFC] font-meduim rounded-full  transition-colors duration-200 flex items-center gap-2">
+                  Book a stay
+                </button>{" "}
+              </Link>
             </div>
           </div>
         </div>
