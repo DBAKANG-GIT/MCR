@@ -5,6 +5,7 @@ import type React from "react";
 import { useState } from "react";
 import { ChevronDown, AlertCircle } from "lucide-react";
 import FAQ from "../component/layout/Faq";
+import { toast } from "react-toastify";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -34,10 +35,36 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  //
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData), // ✅ send formData
+      });
+
+      const data = await res.json();
+      console.log("API response:", data);
+
+      if (!res.ok) throw new Error(data.error || "Failed to submit");
+
+      toast("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        countryCode: "+44",
+        phone: "",
+        message: "",
+        cancellationPolicy: "",
+      });
+    } catch (error) {
+      console.error(error);
+      toast("Something went wrong, please try again.");
+    }
   };
 
   return (
