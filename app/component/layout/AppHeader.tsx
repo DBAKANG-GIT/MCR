@@ -30,8 +30,8 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Desktop Navbar */}
-      <nav className="bg-white lg:sticky top-0 w-full shadow-sm border-b border-gray-100 z-50">
+      {/* Navbar */}
+      <nav className="bg-white w-screen lg:sticky top-0  shadow-sm border-b border-gray-100 z-50">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -53,7 +53,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-8">
               <Link
                 href="/"
                 className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
@@ -66,14 +66,12 @@ export default function Navbar() {
               >
                 About Us
               </Link>
-
               <Link
                 href="/properties"
                 className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
               >
                 Property
               </Link>
-
               <Link
                 href="/landlords"
                 className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
@@ -89,7 +87,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Book Now Button */}
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
               <Link
                 href="/properties"
                 className="border border-primary border-solid text-primary px-3 py-2 rounded-lg flex items-center gap-2 transition-colors"
@@ -105,8 +103,8 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Mobile + Tablet menu button */}
+            <div className="lg:hidden">
               <button
                 onClick={toggleMobileMenu}
                 aria-expanded={isMobileMenuOpen}
@@ -127,24 +125,23 @@ export default function Navbar() {
       {/* Mobile Menu Overlay with Transition */}
       <div
         aria-hidden={!isMobileMenuOpen}
-        // outer wrapper controls pointer-events to prevent clicks when closed
-        className={`relative md:hidden transition-opacity duration-300 ${
+        className={`relative lg:hidden transition-opacity duration-300 ${
           isMobileMenuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
       >
-        {/* Overlay fade (under the menu) */}
+        {/* Overlay fade (background) */}
         <div
           onClick={closeMobileMenu}
-          className={`relativ einset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-[#000000a3] bg-opacity-50 z-40 transition-opacity duration-300 ${
             isMobileMenuOpen ? "opacity-100" : "opacity-0"
           }`}
         />
 
-        {/* Slide-in menu (on top of overlay) */}
+        {/* Slide-in menu */}
         <aside
-          className={`fixed z-50  inset-y-0 left-0 w-full max-w-sm bg-white shadow-xl transform transition-transform duration-300  ${
+          className={`fixed z-50 inset-y-0 left-0 w-full max-w-sm bg-white shadow-xl transform transition-transform duration-300 ${
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           aria-label="Mobile menu"
@@ -185,7 +182,6 @@ export default function Navbar() {
               >
                 Home
               </Link>
-
               <Link
                 href="/about"
                 onClick={closeMobileMenu}
@@ -193,7 +189,6 @@ export default function Navbar() {
               >
                 About Us
               </Link>
-
               <Link
                 href="/properties"
                 onClick={closeMobileMenu}
@@ -201,7 +196,6 @@ export default function Navbar() {
               >
                 Our Properties
               </Link>
-
               <Link
                 href="/landlords"
                 onClick={closeMobileMenu}
@@ -209,7 +203,6 @@ export default function Navbar() {
               >
                 Landlords & Investors
               </Link>
-
               <Link
                 href="/contact"
                 onClick={closeMobileMenu}
@@ -217,6 +210,7 @@ export default function Navbar() {
               >
                 Contact Us
               </Link>
+
               {/* Mobile Book Now Link */}
               <div className="p-4 border-t border-gray-200">
                 <Link

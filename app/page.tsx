@@ -162,7 +162,7 @@ function LocationSection() {
 
 export default function Hero() {
   return (
-    <section className="bg-white">
+    <section className="bg-white overflow-x-hidden">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-center min-h-[600px] py-12 lg:py-3">
           {/* Left Content */}
@@ -170,7 +170,7 @@ export default function Hero() {
             <h1 className="text-4xl   lg:w-[450px] sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
               Where Your Dreams Find a Home
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-lg">
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 lg:max-w-lg">
               Ready to own your dream home or invest in your future? We are here
               to guide you every step of the way. Lets explore opportunities,
               make informed decisions, and create a brighter tomorrow, together!
@@ -190,7 +190,7 @@ export default function Hero() {
                 height={400}
                 src={"/header-1.webp"}
                 alt="Modern living room with couple looking at tablet"
-                className="w-[200px] h-[500px] lg:w-[600px] lg:h-[600px]  object-cover"
+                className="w-[200px] md:w-full h-[500px] lg:w-[600px] lg:h-[600px]  object-cover"
                 priority
                 fetchPriority="high"
               />
@@ -199,7 +199,7 @@ export default function Hero() {
                 height={400}
                 src={"/header-2.webp"}
                 alt="Modern living room with couple looking at tablet"
-                className="w-[200px] h-[500px] lg:w-[600px]  lg:h-[600px]  object-cover"
+                className="w-[200px] md:w-full h-[500px] lg:w-[600px]  lg:h-[600px]  object-cover"
                 loading="lazy"
               />
             </div>

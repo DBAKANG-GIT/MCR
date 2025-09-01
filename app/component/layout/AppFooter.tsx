@@ -5,17 +5,35 @@ import Image from "next/image";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // "idle" | "loading" | "success" | "error"
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle subscription logic here
-    console.log("Subscribe:", email);
-    setEmail("");
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        toast.success(data.message || "success");
+        setEmail("");
+      } else {
+        setStatus("error");
+        toast.error(data.error || "Subscription failed. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      toast.error("Subscription failed. Please try again.");
+    }
   };
-
   return (
     <footer className="bg-[#1B1F21] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -49,10 +67,13 @@ export default function Footer() {
                 />{" "}
                 <ArrowRight className="w-5 h-5 absolute right-5 top-5" />
               </div>
+              <button
+                type="submit"
+                className="ml-4 px-4 py-3 bg-primary hover:bg-cyan-600 text-white rounded-[16px] transition-colors duration-400"
+              >
+                {status == "loading" ? "subscribing" : "Subscribe Now"}
+              </button>
             </form>
-            <button className="ml-4 px-4 py-3 bg-primary hover:bg-cyan-600 text-white rounded-[16px] transition-colors duration-400">
-              Subscribe Now
-            </button>
           </div>
 
           {/* Navigation Links */}
@@ -201,10 +222,13 @@ export default function Footer() {
                   />{" "}
                   <ArrowRight className="w-5 h-5 hidden lg:block absolute right-5 top-5" />
                 </div>
+                <button
+                  type="submit"
+                  className="lg:ml-4 px-4 py-3 bg-primary hover:bg-cyan-600 text-white  rounded-md lg:rounded-[16px] transition-colors duration-400"
+                >
+                  {status == "loading" ? "subscribing" : "Subscribe Now"}
+                </button>
               </form>
-              <button className="lg:ml-4 px-4 py-3 bg-primary hover:bg-cyan-600 text-white  rounded-md lg:rounded-[16px] transition-colors duration-400">
-                Subscribe Now
-              </button>
             </div>
           </div>
           {/* Social Icons */}
