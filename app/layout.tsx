@@ -2,7 +2,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "./component/layout/AppFooter";
 import Navbar from "./component/layout/AppHeader";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plusjakarta",
