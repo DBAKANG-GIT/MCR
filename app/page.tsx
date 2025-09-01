@@ -20,11 +20,12 @@ function SearchForm() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-[#7BBCB0]">
               <MapPin className="w-5 h-5" />
-              <label className="text-sm font-medium text-gray-700">
+              <label htmlFor="location-input" className="text-sm font-medium text-gray-700">
                 Location
               </label>
             </div>
             <input
+              id="location-input"
               type="text"
               placeholder="Search For A Destination"
               value={location}
@@ -37,11 +38,12 @@ function SearchForm() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-[#7BBCB0]">
               <Users className="w-5 h-5" />
-              <label className="text-sm font-medium text-gray-700">
+              <label htmlFor="guests-input" className="text-sm font-medium text-gray-700">
                 Guests
               </label>
             </div>
             <input
+              id="guests-input"
               type="text"
               placeholder="How many Guests?"
               value={guests}
@@ -54,11 +56,12 @@ function SearchForm() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-[#7BBCB0]">
               <Calendar className="w-5 h-5" />
-              <label className="text-sm font-medium text-gray-700">
+              <label htmlFor="dates-input" className="text-sm font-medium text-gray-700">
                 Check In/Check Out
               </label>
             </div>
             <input
+              id="dates-input"
               type="text"
               placeholder="Add dates"
               value={dates}
@@ -102,17 +105,27 @@ function LocationSection() {
           </p>
         </div>
 
-        <div
+        <button
           onClick={() =>
             window.scrollTo({
               top: document.body.scrollHeight,
               behavior: "smooth",
             })
           }
-          className="group flex items-center gap-2 text-gray-500 rounded-full p-4 animate-bounce-slow bg-gradient-to-r from-[#F5F6FF] to-blue-50 cursor-pointer hover:shadow-lg hover:scale-110 transition-all duration-300"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth",
+              });
+            }
+          }}
+          aria-label="Scroll to bottom of page"
+          className="group flex items-center gap-2 text-gray-500 rounded-full p-4 animate-bounce-slow bg-gradient-to-r from-[#F5F6FF] to-blue-50 cursor-pointer hover:shadow-lg hover:scale-110 transition-all duration-300 border-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <ArrowDown className="w-6 h-6 text-[#4364A0] group-hover:animate-pulse" />
-        </div>
+        </button>
       </div>
 
       {/* Main Content */}
@@ -148,8 +161,8 @@ function LocationSection() {
           </p>
 
           <p className="text-gray-600 leading-relaxed">
-            Introducing a masterpiece in modern living to Manchesters creative
-            district, the iconic Northern Quarter. A vibrant neighbourhood of
+            Introducing a masterpiece in modern living to Manchester&apos;s creative
+            district, the iconic Northern Quarter. A vibrant neighborhood of
             cultural, creative and digital innovation, the Northern Quarter
             calls for a residential offering to keep pace with the demands of
             its inhabitants.

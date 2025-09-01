@@ -243,8 +243,8 @@ export default function PrivacyNoticeComponent() {
         <div className="mb-8">
           <Button>
             <a
-              href="docs/privacy-notice.pdf"
-              download="privacy-notice.pdf"
+              href="/privacy-policy.pdf"
+              download="privacy-policy.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
