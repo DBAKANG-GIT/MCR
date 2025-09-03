@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <nav className="bg-white w-screen lg:sticky top-0  shadow-sm border-b border-gray-100 z-50">
+      <nav className="bg-white/80 backdrop-blur-lg w-screen lg:sticky top-0 shadow-lg border-b border-white/20 z-50 transition-all duration-300">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -56,33 +56,38 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link
                 href="/"
-                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 relative group"
               >
-                Home
+                <span className="relative z-10">Home</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
               <Link
                 href="/about"
-                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 relative group"
               >
-                About Us
+                <span className="relative z-10">About Us</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
               <Link
                 href="/properties"
-                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 relative group"
               >
-                Property
+                <span className="relative z-10">Property</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
               <Link
                 href="/landlords"
-                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 relative group"
               >
-                Landlords & Investors
+                <span className="relative z-10">Landlords & Investors</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
               <Link
                 href="/contact"
-                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-[#585F81] hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 relative group"
               >
-                Contact Us
+                <span className="relative z-10">Contact Us</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </div>
 
@@ -90,16 +95,18 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center">
               <Link
                 href="/properties"
-                className="border border-primary border-solid text-primary px-3 py-2 rounded-lg flex items-center gap-2 transition-colors"
+                className="group relative overflow-hidden border border-primary text-primary px-6 py-2.5 rounded-full flex items-center gap-2 transition-all duration-300 hover:text-white hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105"
               >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
                 <Image
                   src="/book-icon.svg"
                   alt="Book"
                   width={16}
                   height={16}
                   loading="lazy"
+                  className="relative z-10"
                 />
-                Book Now
+                <span className="relative z-10 font-medium">Book Now</span>
               </Link>
             </div>
 

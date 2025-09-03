@@ -35,23 +35,32 @@ export default function Footer() {
     }
   };
   return (
-    <footer className="bg-[#1B1F21] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="relative bg-gradient-to-br from-[#1B1F21] via-[#2A2F35] to-[#1B1F21] text-white overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{animationDelay: "3s"}}></div>
+      </div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <Image
-            src={"/footer-icon.svg"}
-            alt="MCR Getaways"
-            width={30}
-            height={30}
-            className="h-20 w-auto"
-          />
+        <div className="flex justify-center mb-8 animate-fade-in-up">
+          <div className="relative group">
+            <Image
+              src={"/footer-icon.svg"}
+              alt="MCR Getaways"
+              width={30}
+              height={30}
+              className="h-20 w-auto transition-transform duration-300 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 rounded-full"></div>
+          </div>
         </div>
 
         {/* Desktop Layout */}
         <div className="hidden lg:block">
           {/* Email Subscription */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-8 animate-fade-in-up" style={{animationDelay: "0.2s"}}>
             <form
               onSubmit={handleSubscribe}
               className="flex items-center max-w-sm w-full"
@@ -62,51 +71,59 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 bg-[#131416] border border-[#818B9D30] rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-3 bg-[#131416]/80 backdrop-blur-sm border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary/50 transition-all duration-300 text-white placeholder:text-gray-400"
                   required
-                />{" "}
-                <ArrowRight className="w-5 h-5 absolute right-5 top-5" />
+                />
+                <ArrowRight className="w-5 h-5 absolute right-5 top-4 text-gray-400" />
               </div>
               <button
                 type="submit"
-                className="ml-4 px-4 py-3 bg-primary hover:bg-cyan-600 text-white rounded-[16px] transition-colors duration-400"
+                className="group relative overflow-hidden ml-4 px-6 py-3 bg-gradient-to-r from-primary to-cyan-500 hover:from-cyan-600 hover:to-primary text-white rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/25 hover:scale-105"
               >
-                {status == "loading" ? "subscribing" : "Subscribe Now"}
+                <span className="relative z-10">
+                  {status == "loading" ? "Subscribing..." : "Subscribe Now"}
+                </span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
               </button>
             </form>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex justify-center space-x-8 mb-8">
+          <div className="flex justify-center space-x-8 mb-8 animate-fade-in-up" style={{animationDelay: "0.4s"}}>
             <Link
               href="/"
-              className="text-white hover:text-cyan-400 transition-colors"
+              className="group relative text-white hover:text-cyan-400 transition-all duration-300 px-3 py-2"
             >
-              Home
+              <span className="relative z-10">Home</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
             <Link
               href="/about"
-              className="text-gray-400 hover:text-cyan-400 transition-colors"
+              className="group relative text-gray-400 hover:text-cyan-400 transition-all duration-300 px-3 py-2"
             >
-              About Us
+              <span className="relative z-10">About Us</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
             <Link
-              href="/not-found"
-              className="text-gray-400 hover:text-cyan-400 transition-colors"
+              href="/properties"
+              className="group relative text-gray-400 hover:text-cyan-400 transition-all duration-300 px-3 py-2"
             >
-              Properties
+              <span className="relative z-10">Properties</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
             <Link
               href="/landlords"
-              className="text-gray-400 hover:text-cyan-400 transition-colors"
+              className="group relative text-gray-400 hover:text-cyan-400 transition-all duration-300 px-3 py-2"
             >
-              Landlords & Investors
+              <span className="relative z-10">Landlords & Investors</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
             <Link
               href="/contact"
-              className="text-gray-400 hover:text-cyan-400 transition-colors"
+              className="group relative text-gray-400 hover:text-cyan-400 transition-all duration-300 px-3 py-2"
             >
-              Contact Us
+              <span className="relative z-10">Contact Us</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Link>
           </div>
 
@@ -133,60 +150,70 @@ export default function Footer() {
               </div>
 
               {/* Center: Social Icons */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 animate-fade-in-up" style={{animationDelay: "0.6s"}}>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
+                  className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image
                     src="/socials/facebook.svg"
                     alt="Facebook"
-                    width={40}
-                    height={40}
+                    width={32}
+                    height={32}
+                    className="relative z-10 transition-transform duration-300 group-hover:scale-110"
                   />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
+                  className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image
                     src="/socials/linkedin.svg"
                     alt="LinkedIn"
-                    width={40}
-                    height={40}
+                    width={32}
+                    height={32}
+                    className="relative z-10 transition-transform duration-300 group-hover:scale-110"
                   />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
+                  className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/25"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image
                     src="/socials/instagram.svg"
                     alt="Instagram"
-                    width={40}
-                    height={40}
+                    width={32}
+                    height={32}
+                    className="relative z-10 transition-transform duration-300 group-hover:scale-110"
                   />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
+                  className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/25"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image
                     src="/socials/whatsapp.svg"
                     alt="WhatsApp"
-                    width={40}
-                    height={40}
+                    width={32}
+                    height={32}
+                    className="relative z-10 transition-transform duration-300 group-hover:scale-110"
                   />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
+                  className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-500/20 to-gray-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image
                     src="/socials/tiktok.svg"
                     alt="TikTok"
-                    width={40}
-                    height={40}
+                    width={32}
+                    height={32}
+                    className="relative z-10 transition-transform duration-300 group-hover:scale-110"
                   />
                 </a>
               </div>
