@@ -41,7 +41,8 @@ test.describe('Premium Animations and Effects', () => {
   test('should have glass morphism search form', async ({ page }, testInfo) => {
     // Skip on mobile where search form is hidden
     if (testInfo.project.name.includes('Mobile')) {
-      test.skip('Search form is hidden on mobile');
+      test.skip();
+      return;
     }
     
     const searchForm = page.locator('.glass').first();
@@ -67,7 +68,8 @@ test.describe('Premium Animations and Effects', () => {
   test('should have interactive hover effects on navigation', async ({ page }, testInfo) => {
     // Skip on mobile devices
     if (testInfo.project.name.includes('Mobile')) {
-      test.skip('Desktop navigation not available on mobile');
+      test.skip();
+      return;
     }
     
     const navLinks = page.locator('nav .group');

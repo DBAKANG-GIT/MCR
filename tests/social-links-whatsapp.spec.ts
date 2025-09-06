@@ -25,7 +25,8 @@ test.describe('Social Links and WhatsApp Button - Comprehensive Tests', () => {
   test('should show WhatsApp tooltip on hover', async ({ page }, testInfo) => {
     // Skip on mobile devices where hover doesn't work the same way
     if (testInfo.project.name.includes('Mobile')) {
-      test.skip('Hover effects not applicable on mobile devices');
+      test.skip();
+      return;
     }
     
     const whatsappButton = page.locator('a[href="https://wa.me/qr/JCJCODZXZ2RKN1"]');
@@ -44,7 +45,8 @@ test.describe('Social Links and WhatsApp Button - Comprehensive Tests', () => {
 
   test('should display social media links in desktop footer', async ({ page }, testInfo) => {
     if (testInfo.project.name.includes('Mobile')) {
-      test.skip('This test is for desktop footer social links');
+      test.skip();
+      return;
     }
     
     // Scroll to footer
@@ -60,7 +62,8 @@ test.describe('Social Links and WhatsApp Button - Comprehensive Tests', () => {
 
   test('should display social media links in mobile footer', async ({ page }, testInfo) => {
     if (!testInfo.project.name.includes('Mobile')) {
-      test.skip('This test is for mobile footer social links');
+      test.skip();
+      return;
     }
     
     // Scroll to footer
@@ -109,7 +112,8 @@ test.describe('Social Links and WhatsApp Button - Comprehensive Tests', () => {
 
   test('should have hover effects on desktop social links', async ({ page }, testInfo) => {
     if (testInfo.project.name.includes('Mobile')) {
-      test.skip('Hover effects not applicable on mobile devices');
+      test.skip();
+      return;
     }
     
     await page.locator('footer').scrollIntoViewIfNeeded();

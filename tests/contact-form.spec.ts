@@ -59,7 +59,8 @@ test.describe('Contact Form - Comprehensive Tests', () => {
   test('should have working cancellation policy dropdown on desktop', async ({ page }, testInfo) => {
     // Skip on mobile where dropdown is hidden
     if (testInfo.project.name.includes('Mobile')) {
-      test.skip('Cancellation policy dropdown is hidden on mobile');
+      test.skip();
+      return;
     }
     
     // Click cancellation policy dropdown - use more specific selector
@@ -158,7 +159,8 @@ test.describe('Contact Form - Comprehensive Tests', () => {
 
   test('should be responsive on mobile devices', async ({ page }, testInfo) => {
     if (!testInfo.project.name.includes('Mobile')) {
-      test.skip('This test is specific to mobile devices');
+      test.skip();
+      return;
     }
     
     // Check mobile-specific layout

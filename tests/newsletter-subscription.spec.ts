@@ -7,7 +7,8 @@ test.describe('Newsletter Subscription - Comprehensive Tests', () => {
 
   test('should display newsletter subscription form in desktop footer', async ({ page }, testInfo) => {
     if (testInfo.project.name.includes('Mobile')) {
-      test.skip('This test is for desktop newsletter form');
+      test.skip();
+      return;
     }
     
     // Scroll to footer
@@ -23,7 +24,8 @@ test.describe('Newsletter Subscription - Comprehensive Tests', () => {
 
   test('should display newsletter subscription form in mobile footer', async ({ page }, testInfo) => {
     if (!testInfo.project.name.includes('Mobile')) {
-      test.skip('This test is for mobile newsletter form');
+      test.skip();
+      return;
     }
     
     // Scroll to footer
