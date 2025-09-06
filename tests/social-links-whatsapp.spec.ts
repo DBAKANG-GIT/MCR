@@ -10,10 +10,9 @@ test.describe('Social Links and WhatsApp Button - Comprehensive Tests', () => {
     const whatsappButton = page.locator('a[href="https://wa.me/qr/JCJCODZXZ2RKN1"]');
     await expect(whatsappButton).toBeVisible();
     
-    // Check button styling and positioning
-    await expect(whatsappButton).toHaveClass(/fixed/);
-    await expect(whatsappButton).toHaveClass(/bottom-4/);
-    await expect(whatsappButton).toHaveClass(/left-4/);
+    // Check button styling and positioning - fixed classes are on parent div
+    const whatsappContainer = page.locator('div.fixed.bottom-4.left-4');
+    await expect(whatsappContainer).toBeVisible();
     await expect(whatsappButton).toHaveClass(/bg-green-500/);
     
     // Check accessibility attributes
@@ -51,12 +50,12 @@ test.describe('Social Links and WhatsApp Button - Comprehensive Tests', () => {
     // Scroll to footer
     await page.locator('footer').scrollIntoViewIfNeeded();
     
-    // Check all social media links are present
-    await expect(page.locator('footer a[href="#"]:has(img[alt="Facebook"])')).toBeVisible();
-    await expect(page.locator('footer a[href="#"]:has(img[alt="LinkedIn"])')).toBeVisible();
-    await expect(page.locator('footer a[href="https://www.instagram.com/mcr.getaways.ltd?igsh=MTd1YW5ramo2N25qag=="]:has(img[alt="Instagram"])')).toBeVisible();
-    await expect(page.locator('footer a[href="#"]:has(img[alt="WhatsApp"])')).toBeVisible();
-    await expect(page.locator('footer a[href="https://www.tiktok.com/@mcr.getaways.ltd?_t=ZN-8z9EJWPRa4M&_r=1"]:has(img[alt="TikTok"])')).toBeVisible();
+    // Check all social media links are present - use .first() for multiple matches
+    await expect(page.locator('footer a[href="#"]:has(img[alt="Facebook"])').first()).toBeVisible();
+    await expect(page.locator('footer a[href="#"]:has(img[alt="LinkedIn"])').first()).toBeVisible();
+    await expect(page.locator('footer a[href="https://www.instagram.com/mcr.getaways.ltd?igsh=MTd1YW5ramo2N25qag=="]:has(img[alt="Instagram"])').first()).toBeVisible();
+    await expect(page.locator('footer a[href="#"]:has(img[alt="WhatsApp"])').first()).toBeVisible();
+    await expect(page.locator('footer a[href="https://www.tiktok.com/@mcr.getaways.ltd?_t=ZN-8z9EJWPRa4M&_r=1"]:has(img[alt="TikTok"])').first()).toBeVisible();
   });
 
   test('should display social media links in mobile footer', async ({ page }, testInfo) => {
@@ -126,12 +125,12 @@ test.describe('Social Links and WhatsApp Button - Comprehensive Tests', () => {
   test('should display social icons with correct alt text', async ({ page }) => {
     await page.locator('footer').scrollIntoViewIfNeeded();
     
-    // Check all social icons have proper alt text
-    await expect(page.locator('footer img[alt="Facebook"]')).toBeVisible();
-    await expect(page.locator('footer img[alt="LinkedIn"]')).toBeVisible();
-    await expect(page.locator('footer img[alt="Instagram"]')).toBeVisible();
-    await expect(page.locator('footer img[alt="WhatsApp"]')).toBeVisible();
-    await expect(page.locator('footer img[alt="TikTok"]')).toBeVisible();
+    // Check all social icons have proper alt text - use first() for multiple matches
+    await expect(page.locator('footer img[alt="Facebook"]').first()).toBeVisible();
+    await expect(page.locator('footer img[alt="LinkedIn"]').first()).toBeVisible();
+    await expect(page.locator('footer img[alt="Instagram"]').first()).toBeVisible();
+    await expect(page.locator('footer img[alt="WhatsApp"]').first()).toBeVisible();
+    await expect(page.locator('footer img[alt="TikTok"]').first()).toBeVisible();
   });
 
   test('should have WhatsApp button with proper z-index', async ({ page }) => {

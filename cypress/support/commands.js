@@ -158,46 +158,5 @@ Cypress.Commands.add('checkARIA', () => {
   });
 });
 
-// TypeScript declarations for custom commands
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      fillContactForm(formData: {
-        name: string;
-        email: string;
-        phone: string;
-        subject: string;
-        message: string;
-        consent?: boolean;
-      }): Chainable<Element>;
-      
-      submitNewsletter(email: string): Chainable<Element>;
-      
-      isInViewport(element: string): Chainable<Element>;
-      
-      scrollToElement(element: string): Chainable<Element>;
-      
-      checkResponsive(): Chainable<Element>;
-      
-      checkPagePerformance(): Chainable<Element>;
-      
-      checkImages(): Chainable<Element>;
-      
-      checkExternalLinks(): Chainable<Element>;
-      
-      simulateUserJourney(): Chainable<Element>;
-      
-      testFormValidation(formSelector: string): Chainable<Element>;
-      
-      checkARIA(): Chainable<Element>;
-      
-      checkGtagCall(eventName: string, expectedParams?: Record<string, any>): Chainable<Element>;
-      
-      waitForAnalytics(): Chainable<Element>;
-      
-      checkSEOElements(): Chainable<Element>;
-      
-      checkAccessibility(): Chainable<Element>;
-    }
-  }
-}
+// Note: TypeScript declarations would go in cypress.d.ts file
+// Removed TypeScript-specific syntax from this JavaScript file

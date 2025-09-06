@@ -17,13 +17,13 @@ test.describe('Contact Form - Comprehensive Tests', () => {
     await expect(page.locator('input[name="phone"]')).toBeVisible();
     await expect(page.locator('textarea[name="message"]')).toBeVisible();
     
-    // Check submit button
-    await expect(page.locator('button[type="submit"]')).toContainText('Send Message');
+    // Check contact form submit button specifically
+    await expect(page.locator('form button[type="submit"]:has-text("Send Message")')).toContainText('Send Message');
   });
 
   test('should validate required fields', async ({ page }) => {
-    // Try to submit empty form
-    await page.locator('button[type="submit"]').click();
+    // Try to submit empty form - use contact form submit button specifically
+    await page.locator('form button[type="submit"]:has-text("Send Message")').click();
     
     // Check HTML5 validation appears
     const nameField = page.locator('input[name="name"]');
@@ -62,8 +62,8 @@ test.describe('Contact Form - Comprehensive Tests', () => {
       test.skip('Cancellation policy dropdown is hidden on mobile');
     }
     
-    // Click cancellation policy dropdown
-    const policyButton = page.locator('button').filter({ hasText: 'Cancellation Policy' });
+    // Click cancellation policy dropdown - use more specific selector
+    const policyButton = page.locator('form button:has-text("Cancellation Policy")').first();
     await policyButton.click();
     
     // Check dropdown appears with options
@@ -86,7 +86,7 @@ test.describe('Contact Form - Comprehensive Tests', () => {
     await page.locator('textarea[name="message"]').fill('This is a test message for the contact form.');
     
     // Select cancellation policy if visible (desktop only)
-    const policyButton = page.locator('button').filter({ hasText: 'Cancellation Policy' });
+    const policyButton = page.locator('form button:has-text("Cancellation Policy")').first();
     if (await policyButton.isVisible()) {
       await policyButton.click();
       await page.locator('text=Flexible - Free cancellation').click();
@@ -101,8 +101,8 @@ test.describe('Contact Form - Comprehensive Tests', () => {
       });
     });
     
-    // Submit form
-    await page.locator('button[type="submit"]').click();
+    // Submit form - use contact form submit button specifically
+    await page.locator('form button[type="submit"]:has-text("Send Message")').click();
     
     // Wait for and check success toast message
     await expect(page.locator('text=Message sent successfully!')).toBeVisible({ timeout: 10000 });
@@ -130,8 +130,8 @@ test.describe('Contact Form - Comprehensive Tests', () => {
       });
     });
     
-    // Submit form
-    await page.locator('button[type="submit"]').click();
+    // Submit form - use contact form submit button specifically
+    await page.locator('form button[type="submit"]:has-text("Send Message")').click();
     
     // Check error toast appears
     await expect(page.locator('text=Something went wrong, please try again.')).toBeVisible({ timeout: 10000 });
@@ -142,8 +142,8 @@ test.describe('Contact Form - Comprehensive Tests', () => {
     await page.locator('input[name="email"]').fill('invalid-email');
     await page.locator('input[name="name"]').fill('Test User');
     
-    // Try to submit
-    await page.locator('button[type="submit"]').click();
+    // Try to submit - use contact form submit button specifically
+    await page.locator('form button[type="submit"]:has-text("Send Message")').click();
     
     // Check HTML5 email validation
     const emailField = page.locator('input[name="email"]');
@@ -151,8 +151,8 @@ test.describe('Contact Form - Comprehensive Tests', () => {
   });
 
   test('should have FAQ section below the contact form', async ({ page }) => {
-    // Check that FAQ component is rendered
-    const faqSection = page.locator('div').filter({ hasText: 'FAQ' });
+    // Check that FAQ component is rendered - use more specific selector
+    const faqSection = page.locator('h2:has-text("FAQ")');
     await expect(faqSection).toBeVisible();
   });
 
