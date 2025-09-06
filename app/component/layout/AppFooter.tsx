@@ -6,8 +6,10 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { useAnalytics } from "../../hooks/useAnalytics";
 
 export default function Footer() {
+  const { trackNewsletterSignup, trackSocialClick, trackPrivacyPolicyDownload } = useAnalytics();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // "idle" | "loading" | "success" | "error"
 
@@ -23,6 +25,8 @@ export default function Footer() {
       const data = await res.json();
       if (res.ok) {
         setStatus("success");
+        // Track successful newsletter signup
+        trackNewsletterSignup("desktop"); // or "mobile" based on screen size
         toast.success(data.message || "success");
         setEmail("");
       } else {
@@ -146,6 +150,7 @@ export default function Footer() {
                   download="MCR_Getaways_Privacy_Notice.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackPrivacyPolicyDownload()}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Privacy policy
@@ -188,6 +193,7 @@ export default function Footer() {
                   href="https://www.instagram.com/mcr.getaways.ltd?igsh=MTd1YW5ramo2N25qag=="
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackSocialClick('Instagram')}
                   className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -218,6 +224,7 @@ export default function Footer() {
                   href="https://www.tiktok.com/@mcr.getaways.ltd?_t=ZN-8z9EJWPRa4M&_r=1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackSocialClick('TikTok')}
                   className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-500/20 to-gray-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

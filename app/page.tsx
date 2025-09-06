@@ -5,6 +5,7 @@ import { MapPin, Users, Calendar, ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { LandlordsInvestorsSection } from "./component/layout/LandlordsInvestorsSection";
 import { LandlordsHero } from "./component/layout/LandlordsHero";
+import StructuredData from "./component/seo/StructuredData";
 import Link from "next/link";
 
 function SearchForm() {
@@ -258,6 +259,7 @@ export default function Hero() {
       </div>
       <LandlordsInvestorsSection />
       <LandlordsHero />
+      <StructuredData type="localBusiness" />
     </section>
   );
 }

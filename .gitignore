@@ -12,6 +12,18 @@
 
 # testing
 /coverage
+*.lcov
+
+# cypress
+/cypress/videos/
+/cypress/screenshots/
+/cypress/downloads/
+cypress/videos
+cypress/screenshots
+cypress/downloads
+
+# nyc
+/.nyc_output
 
 # playwright
 /test-results/

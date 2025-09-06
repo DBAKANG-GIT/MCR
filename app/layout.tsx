@@ -4,7 +4,16 @@ import Footer from "./component/layout/AppFooter";
 import Navbar from "./component/layout/AppHeader";
 import { WhatsAppButton } from "./component/layout/WhatsAppButton";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/react";
+import GoogleAnalytics from "./component/analytics/GoogleAnalytics";
+import StructuredData from "./component/seo/StructuredData";
+import SEOMonitor from "./component/seo/SEOMonitor";
 import "react-toastify/dist/ReactToastify.css";
+import { metadata } from "./metadata";
+
+// Export metadata for Next.js
+export { metadata };
+
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plusjakarta",
   subsets: ["latin"],
@@ -24,6 +33,11 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsAppButton />
+        <Analytics />
+        <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        <StructuredData type="organization" />
+        <StructuredData type="website" />
+        <SEOMonitor />
       </body>
     </html>
   );

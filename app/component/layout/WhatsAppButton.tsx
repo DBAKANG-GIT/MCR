@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useAnalytics } from "../../hooks/useAnalytics";
 
 export function WhatsAppButton() {
+  const { trackWhatsAppClick } = useAnalytics();
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -20,6 +22,7 @@ export function WhatsAppButton() {
         href="https://wa.me/qr/JCJCODZXZ2RKN1"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackWhatsAppClick()}
         className="p-3 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
         aria-label="Send a message on WhatsApp"
         title="Send a message on WhatsApp"
