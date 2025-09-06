@@ -2,6 +2,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "./component/layout/AppFooter";
 import Navbar from "./component/layout/AppHeader";
+import { WhatsAppButton } from "./component/layout/WhatsAppButton";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const plusJakarta = Plus_Jakarta_Sans({
@@ -18,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={plusJakarta.variable}>
       <body className="antialiased font-sans ">
-       
-                         <ToastContainer position="top-center" autoClose={3000} />
- <Navbar />
+        <ToastContainer position="top-center" autoClose={3000} />
+        <Navbar />
         {children}
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -41,26 +41,34 @@ export default function ContactPage() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/contact", {
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", `${formData.countryCode} ${formData.phone}`);
+      formDataToSend.append("message", formData.message);
+      formDataToSend.append("cancellationPolicy", formData.cancellationPolicy);
+
+      const res = await fetch("https://formspree.io/f/xovnadej", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData), // ✅ send formData
+        body: formDataToSend,
+        headers: {
+          "Accept": "application/json"
+        }
       });
 
-      const data = await res.json();
-      console.log("API response:", data);
-
-      if (!res.ok) throw new Error(data.error || "Failed to submit");
-
-      toast("Message sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        countryCode: "+44",
-        phone: "",
-        message: "",
-        cancellationPolicy: "",
-      });
+      if (res.ok) {
+        toast("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          countryCode: "+44",
+          phone: "",
+          message: "",
+          cancellationPolicy: "",
+        });
+      } else {
+        throw new Error("Failed to submit");
+      }
     } catch (error) {
       console.error(error);
       toast("Something went wrong, please try again.");

@@ -141,18 +141,23 @@ export default function Footer() {
                 >
                   Terms & Conditions
                 </Link>
-                <Link
-                  href="/policy"
+                <a
+                  href="/MCR_Getaways_Privacy_Notice.pdf"
+                  download="MCR_Getaways_Privacy_Notice.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Privacy policy
-                </Link>
+                </a>
               </div>
 
               {/* Center: Social Icons */}
               <div className="flex space-x-4 animate-fade-in-up" style={{animationDelay: "0.6s"}}>
                 <a
                   href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -166,6 +171,8 @@ export default function Footer() {
                 </a>
                 <a
                   href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -178,7 +185,9 @@ export default function Footer() {
                   />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/mcr.getaways.ltd?igsh=MTd1YW5ramo2N25qag=="
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -192,6 +201,8 @@ export default function Footer() {
                 </a>
                 <a
                   href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -204,7 +215,9 @@ export default function Footer() {
                   />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@mcr.getaways.ltd?_t=ZN-8z9EJWPRa4M&_r=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-500/20 to-gray-600/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -263,6 +276,8 @@ export default function Footer() {
           <div className="flex justify-center mb-3 space-x-4">
             <a
               href="#"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
             >
               <Image
@@ -274,6 +289,8 @@ export default function Footer() {
             </a>
             <a
               href="#"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
             >
               <Image
@@ -284,7 +301,9 @@ export default function Footer() {
               />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/mcr.getaways.ltd?igsh=MTd1YW5ramo2N25qag=="
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
             >
               <Image
@@ -296,6 +315,8 @@ export default function Footer() {
             </a>
             <a
               href="#"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
             >
               <Image
@@ -306,7 +327,9 @@ export default function Footer() {
               />
             </a>
             <a
-              href="#"
+              href="https://www.tiktok.com/@mcr.getaways.ltd?_t=ZN-8z9EJWPRa4M&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
             >
               <Image
@@ -375,12 +398,15 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div className="text-center space-y-2 mb-8">
-            <Link
-              href="/policy"
+            <a
+              href="/MCR_Getaways_Privacy_Notice.pdf"
+              download="MCR_Getaways_Privacy_Notice.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block text-gray-400 hover:text-white transition-colors py-1"
             >
               Privacy Policy
-            </Link>
+            </a>
             <Link
               href="/terms"
               className="block text-gray-400 hover:text-white transition-colors py-1"
