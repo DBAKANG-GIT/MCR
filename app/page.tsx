@@ -222,34 +222,34 @@ export default function Hero() {
 
           {/* Right Image */}
           <div className="flex-1 w-full animate-fade-in-scale" style={{animationDelay: "0.6s"}}>
-            <div className="flex gap-4 relative">
-              <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 animate-float">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 relative">
+              <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl lg:hover:shadow-3xl transition-all duration-500 lg:hover:scale-105 animate-float">
                 <Image
                   width={600}
                   height={400}
                   src={"/header-1.webp"}
                   alt="Modern living room with couple looking at tablet"
-                  className="w-[200px] md:w-full h-[500px] lg:w-[600px] lg:h-[600px] object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full sm:w-[200px] md:w-full h-[300px] sm:h-[400px] lg:w-[600px] lg:h-[600px] object-cover transition-transform duration-700 lg:group-hover:scale-110"
                   priority
                   fetchPriority="high"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 animate-float" style={{animationDelay: "1s"}}>
+              <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl lg:hover:shadow-3xl transition-all duration-500 lg:hover:scale-105 animate-float" style={{animationDelay: "1s"}}>
                 <Image
                   width={600}
                   height={400}
                   src={"/header-2.webp"}
                   alt="Modern living room with couple looking at tablet"
-                  className="w-[200px] md:w-full h-[500px] lg:w-[600px] lg:h-[600px] object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full sm:w-[200px] md:w-full h-[300px] sm:h-[400px] lg:w-[600px] lg:h-[600px] object-cover transition-transform duration-700 lg:group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              
-              {/* Floating elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full opacity-15 animate-pulse" style={{animationDelay: "1s"}}></div>
+
+              {/* Floating elements - hidden on mobile to prevent scroll interference */}
+              <div className="hidden lg:block absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full opacity-20 animate-pulse pointer-events-none"></div>
+              <div className="hidden lg:block absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full opacity-15 animate-pulse pointer-events-none" style={{animationDelay: "1s"}}></div>
             </div>
           </div>
         </div>
